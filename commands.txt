@@ -1,0 +1,68 @@
+Sign up:
+
+curl -v -X POST 'http://127.0.0.1:8080/users/signup' --data '{
+  "username": "tony",
+  "first_name": "Саша",
+  "last_name": "Иванов",
+  "email": "some",
+  "password": "pass"
+}'
+
+curl -v -X POST 'http://127.0.0.1:8080/users/signup' --data '{
+  "username": "tony2",
+  "first_name": "Алекса",
+  "last_name": "Иванов",
+  "email": "some",
+  "password": "pass"
+}'
+
+
+
+Auth:
+curl -v -X POST 'http://127.0.0.1:8080/users/login' --data '{
+  "username": "tony",
+  "password": "pass"
+}'
+
+curl -v -X POST 'http://127.0.0.1:8080/users/login' --data '{
+  "username": "tony2",
+  "password": "pass"
+}'
+
+Post Create:
+
+curl -v -X POST 'http://127.0.0.1:8080/posts/create' \
+-H 'Content-Type: application/json' \
+-H 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6InRvbnkiLCJVc2VySUQiOjEsImV4cCI6MTcyNTY1MzQwMX0.x9-MwX-xiujgAUsZON1qY-Mk6X-eSPTpILjBHOJ1iGk' \
+--data '{
+  "title": "some title",
+  "content": "some content"
+}'
+
+Post Update
+
+curl -v -X PUT 'http://127.0.0.1:8080/posts/update' \
+-H 'Content-Type: application/json' \
+-H 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6InRvbnkiLCJVc2VySUQiOjEsImV4cCI6MTcyNTY1MzQwMX0.x9-MwX-xiujgAUsZON1qY-Mk6X-eSPTpILjBHOJ1iGk' \
+--data '{
+  "title": "new title",
+  "post_id": 1,
+  "content": "new content"
+}'
+
+Get Post
+
+curl -v -X GET 'http://127.0.0.1:8080/posts/1'
+
+
+
+Delete post
+curl -v -X DELETE 'http://127.0.0.1:8080/posts/1' \
+-H 'Content-Type: application/json' \
+-H 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6InRvbnkiLCJVc2VySUQiOjEsImV4cCI6MTcyNTY1MzQwMX0.x9-MwX-xiujgAUsZON1qY-Mk6X-eSPTpILjBHOJ1iGk' \
+
+
+
+curl -v -X DELETE 'http://127.0.0.1:8080/posts/2' \
+-H 'Content-Type: application/json' \
+-H 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6InRvbnkyIiwiVXNlcklEIjoyLCJleHAiOjE3MjU2NTM0OTh9.e6V9ER4XuZW0ROe_lW_2vHGtcxP3DUaULwBFkYjAz2w' \
